@@ -14,6 +14,8 @@ fn part_1() -> bool {
     // an access level.
     // Note: Use is_some or is_none.
     maybe_access("admin")
+        .is_some()
+
 }
 
 fn part_2() -> Option<Access> {
@@ -21,12 +23,15 @@ fn part_2() -> Option<Access> {
     // not listed in the maybe_access function.
     // Note: Use or_else and root().
     maybe_access("root")
+        .or_else(|| root())
 }
 
 fn part_3() -> Access {
     // "Alice" is not a listed user, so she will be a guest.
     // Note: Use unwrap_or_else.
     maybe_access("Alice")
+        .unwrap_or_else(|| Access::Guest)
+
 }
 
 #[derive(Debug, Eq, PartialEq)]
