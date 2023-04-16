@@ -32,3 +32,31 @@ fn concat(first: &str, second: &str) -> String {
 }
 
 fn main() {}
+
+
+#[cfg(test)]
+mod test {
+    use crate::*;
+
+    #[test]
+    fn clamp_lower() {
+        let result = clamp(5, 10, 20);
+        assert_eq!(result, 10);
+    }
+
+    #[test]
+    fn clamp_upper() {
+        let result = clamp(25, 10, 20);
+        assert_eq!(result, 20);
+    }
+
+
+
+    #[test]
+    fn concat_strings() {
+        let result = concat("hello", "world");
+        assert_eq!(result, "hello world");
+    }
+
+
+}
